@@ -1,0 +1,35 @@
+import tkinter as tk
+
+def on_left_click(event, field_name):
+    label.config(text=f"Активное поле: {field_name}")
+
+def on_right_click(event, field_name):
+    print(f"Правый клик на поле: {field_name}")
+
+root = tk.Tk()
+root.geometry("400x300")
+root.title("Оконное приложение 5.2")
+
+# Метка для отображения активного поля
+label = tk.Label(root, text="Активное поле: None", height=2)
+label.pack()
+
+# Три поля ввода
+entry1 = tk.Entry(root)
+entry1.pack(pady=5)
+entry2 = tk.Entry(root)
+entry2.pack(pady=5)
+entry3 = tk.Entry(root)
+entry3.pack(pady=5)
+
+# Подписка на события
+root.bind_class("Entry", "<Button-1>", lambda event: on_left_click(event, "Поле ввода 1"))
+root.bind_class("Entry", "<Button-2>", lambda event: on_right_click(event, "Поле ввода 1"))
+
+entry2.bind("<Button-1>", lambda event: on_left_click(event, "Поле ввода 2"))
+entry2.bind("<Button-2>", lambda event: on_right_click(event, "Поле ввода 2"))
+
+entry3.bind("<Button-1>", lambda event: on_left_click(event, "Поле ввода 3"))
+entry3.bind("<Button-2>", lambda event: on_right_click(event, "Поле ввода 3"))
+
+root.mainloop()
