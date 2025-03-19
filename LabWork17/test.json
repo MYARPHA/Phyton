@@ -1,0 +1,6 @@
+[
+  {"command": "create_file", "path": "example.txt"},
+  {"command": "delete_file", "path": "example.txt"},
+  {"command": "create_folder", "path": "test_folder"},
+  {"command": "rename", "old_path": "test_folder", "new_path": "renamed_folder"}
+]
